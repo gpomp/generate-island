@@ -3,6 +3,7 @@
 varying vec3 vViewPosition;
 uniform float time;
 attribute vec3 color;
+varying vec2 vUv;
 
 #ifndef FLAT_SHADED
   varying vec3 vNormal;
@@ -39,6 +40,7 @@ void main() {
   // chunk(worldpos_vertex);
   // chunk(envmap_vertex);
   // chunk(shadowmap_vertex);
+  vUv = uv;
   vec4 wPos = modelViewMatrix * vec4(position, 1.0);
   vViewPosition = -wPos.xyz;
 }

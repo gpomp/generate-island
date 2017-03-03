@@ -1,5 +1,8 @@
+#pragma glslify: snoise2 = require(glsl-noise/simplex/2d)
 #define PHONG
 #define USE_COLOR
+varying vec2 vUv;
+uniform float time;
 uniform vec3 diffuse;
 uniform vec3 emissive;
 uniform vec3 specular;
@@ -30,6 +33,7 @@ uniform float opacity;
 void main() {
   // chunk(clipping_planes_fragment);
   vec4 diffuseColor = vec4( diffuse, opacity );
+  diffuseColor.rgb += snoise2(vUv * 10000.0) * 0.15;
   ReflectedLight reflectedLight = ReflectedLight( vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ) );
   vec3 totalEmissiveRadiance = emissive;
   // chunk(logdepthbuf_fragment);

@@ -3,7 +3,10 @@ uniform vec3 diffuse;
 uniform vec3 emissive;
 uniform vec3 specular;
 uniform float shininess;
+uniform float time;
 uniform float opacity;
+uniform vec2 waterfalls;
+varying vec2 vUv;
 // chunk(common);
 // chunk(packing);
 // chunk(color_pars_fragment);
@@ -50,5 +53,7 @@ void main() {
   // chunk(tonemapping_fragment);
   // chunk(encodings_fragment);
   // chunk(fog_fragment);
+  float dist = 1.0 - min(distance(vec2(waterfalls.x, waterfalls.y), vUv), 0.05) / 0.05;
+  gl_FragColor.rgb += vec3(floor(cos(dist * 10.0 + time * 200.0) * -2.0 * dist * 10.0) / 10.0 * 0.1);
   gl_FragColor.a *= 0.5;
 }
