@@ -54,6 +54,6 @@ void main() {
   // chunk(encodings_fragment);
   // chunk(fog_fragment);
   float dist = 1.0 - min(distance(vec2(waterfalls.x, waterfalls.y), vUv), 0.05) / 0.05;
-  gl_FragColor.rgb += vec3(floor(cos(dist * 10.0 + time * 200.0) * -2.0 * dist * 10.0) / 10.0 * 0.1);
+  gl_FragColor.rgb += vec3(floor(cos(dist * 10.0 + time * 100.0) * -2.0 * dist * 10.0) / 10.0 * 0.1);
   gl_FragColor.a *= 0.5;
 }

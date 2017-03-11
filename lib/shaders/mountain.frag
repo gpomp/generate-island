@@ -33,7 +33,7 @@ uniform float opacity;
 void main() {
   // chunk(clipping_planes_fragment);
   vec4 diffuseColor = vec4( diffuse, opacity );
-  diffuseColor.rgb += snoise2(vUv * 10000.0) * 0.15;
+  // diffuseColor.rgb += snoise2(vUv * 10000.0) * 0.15;
   ReflectedLight reflectedLight = ReflectedLight( vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ), vec3( 0.0 ) );
   vec3 totalEmissiveRadiance = emissive;
   // chunk(logdepthbuf_fragment);

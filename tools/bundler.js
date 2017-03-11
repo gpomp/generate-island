@@ -6,13 +6,15 @@ const UglifyJS = require('uglifyjs');
 const path = require('path');
 const fs = require('fs');
 
-const isPostinstall = Boolean(process.env.POSTINSTALL);
+/*const isPostinstall = Boolean(process.env.POSTINSTALL);
 const isProduction = process.env.NODE_ENV === 'production';
 let shouldRun = true;
 if (isPostinstall && !isProduction) shouldRun = false;
-if (shouldRun) bundle();
+if (shouldRun) */
+bundle();
 
 function bundle () {
+  console.log('start bundle...');
   const bundler = browserify(path.resolve(__dirname, '../lib/index.js'), {
     transform: [
       'babelify',
@@ -24,8 +26,7 @@ function bundle () {
     ]
   });
 
-  console.log('Build script initated with mode: %s', isPostinstall ? 'postinstall' : 'build');
-  console.log('Environment: ', isProduction ? 'production' : 'development');
+  console.log('Build script initated');
   console.log('Bundling...');
   bundler.bundle(function (err, src) {
     if (err) throw err;

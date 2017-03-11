@@ -42,6 +42,7 @@
     "stringify": "^5.1.0",
     "three": "^0.83.0",
     "three-effectcomposer": "0.0.1",
+    "three-shader-fxaa": "^5.1.1",
     "uglifyjs": "^2.4.10",
     "uploadr": "^1.1.3",
     "webworkify": "^1.4.0"
